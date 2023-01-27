@@ -1,0 +1,21 @@
+syntax = "proto3";
+option go_package = '/notification';
+message WatchNotification {
+    string id = 1;
+    string u_id = 2;
+    string name = 3;
+    string title = 4;
+    string type = 5;
+}
+
+message WatchNotificationRequest {
+    WatchNotification wn = 1;
+}
+
+message WatchNotificationResponse {
+    string response = 1;
+}
+
+service NotificationService {
+    rpc SendWatchNotification(WatchNotificationRequest) returns (WatchNotificationResponse);
+}
